@@ -13,5 +13,6 @@ Enter your name here: Cristian Medina
 3. Axolotl
 4. Peregrine Falcon
 5. Octopus
-6. Cuttlefish
-7. Jaguar
+6. Fox
+7. Cuttlefish
+8. Jaguar
