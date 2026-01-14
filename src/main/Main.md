@@ -2,10 +2,10 @@
 
 This is a simple MarkDown file for practicing Git merging
 
-Enter your name here: ___________
+Enter your name here: Cristian Medina
 
 ## The best animals
 
-1. Cuttlefish
-2. Platypus
-3. Three-toed sloth
+1. Red Panda
+2. Jaguar
+3. Peregrine Falcon
