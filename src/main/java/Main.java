@@ -116,23 +116,16 @@ String[] AsciiStrings = {
         ================================================================"""};
 
 /**
- * First util function of the lab. It serves as a "pause" screen in between questions.
+ * First util function of the lab.
  * It simply clears the console screen by printing newlines multiple times
- * and prints another string from a pool of possible strings to later clear again.
+ * and prints another string from a pool of possible strings.
  */
 void clear() {
     String[] msgPool = {"Did you get it right?", "Are you sure about that?",
             "What if it was actually option C?", "Feeling curious?",
             "I think it was B actually but I might be wrong...", "Did you know about this before?"};
-    print("\n".repeat(50));
+    print("\n".repeat(30));
     println(msgPool[(int)(random()*6)]);
-    try {
-        wait(5000);
-    } catch (InterruptedException e) {
-        println("Something went wrong while waiting...");
-        throw new RuntimeException(e);
-    }
-    print("\n".repeat(50));
 }
 
 /**

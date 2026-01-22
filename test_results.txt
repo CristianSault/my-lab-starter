@@ -1,0 +1,5 @@
+Here are your results for the Silly Test®.
+
+Correct answers: 10
+Incorrect answers: 0
+Verdict: 10/10
