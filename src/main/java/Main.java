@@ -8,7 +8,6 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
-
 /*
 
 Types used in this code:
@@ -23,6 +22,9 @@ void main() {
         var avatarStream = getRandomAvatarStream();
         showAvatar(avatarStream);
     } catch (IOException | InterruptedException e) {
+    /*  (1) _showMessageDialog()_ is a *class method*.
+        (2) _getMessage()_ is an *instance method*.
+        (3) _ERROR_MESSAGE_ ia a *class variable* (constant). */
         JOptionPane.showMessageDialog(null, "Failed to load avatar: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
     }
 
