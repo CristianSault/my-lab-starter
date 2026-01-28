@@ -1,6 +1,8 @@
 package _01_namespaces;
 
-import java.util.List;
+import java.util.*;
+
+import static java.lang.Math.*;
 
 interface MyType {
     class MyNestedType {
@@ -12,11 +14,11 @@ interface MyType {
 
         final int ZERO = 0;
 
-        Math.sqrt(234);
+        var x = sqrt(234);
 
 
         List<String> L;
 
-        Integer x = Integer.parseInt("123");
+        Integer y = Integer.parseInt("123");
     }
 }
