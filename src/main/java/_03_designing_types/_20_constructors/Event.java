@@ -40,6 +40,10 @@ class Event {
     Duration duration() {
         return Duration.between(start, end);
     }
+
+    Event copy() {
+        return new Event(this.title, this.start, this.end);
+    }
 }
 
 

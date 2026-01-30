@@ -11,6 +11,12 @@ class Event {
     LocalDateTime end;
 
     // Constructor
+    Event() {
+        this.title = "Default";
+        this.start = LocalDateTime.now();
+        this.end = this.start.plusHours(1);
+    }
+
     Event(String title, LocalDateTime start, LocalDateTime end) {
         this.title = title;
         this.start = start;
@@ -23,7 +29,7 @@ class Event {
      * @return the duration of the event
      */
     Duration duration() {
-        return Duration.between(start, end);
+        return Duration.between(this.start, this.end);
     }
 }
 

@@ -10,6 +10,8 @@ public class Main {
                 LocalDateTime.of(2023, 10, 1, 18, 0)
         );
 
+        var e2 = new Event();
+
         IO.println("The %s event will be %s hours long".formatted(e.title, e.duration().toHours()));
     }
 }
