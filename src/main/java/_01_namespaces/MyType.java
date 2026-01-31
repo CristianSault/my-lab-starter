@@ -1,6 +1,7 @@
 package _01_namespaces;
 
 import java.awt.*;
+import java.time.LocalDateTime;
 import java.util.*;
 import java.util.List;
 
@@ -15,6 +16,8 @@ interface MyType {
 
         final int EVENT_TITLE_INDEX = 0;
 
+        var asfd = Math.PI;
+
 
         IO.println("hi");
 
@@ -25,6 +28,8 @@ interface MyType {
         var r = new Rectangle(10, 10);
 
         r.width = 10;
+
+        var now = LocalDateTime.now();
 
 
         List<String> L;

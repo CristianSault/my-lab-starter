@@ -16,5 +16,9 @@ public class Main {
                 LocalDateTime.of(2024, 9, 15, 17, 0),
                 List.of(WIFI) // OR if we hadn't done the static import above: .of(Event.Service.WIFI)
         );
+
+        var d = Direction.random();
+        var n = Direction.NORTH;
+        IO.println("Random direction: %s, opposite of %s is %s".formatted(d, n, n.opposite()));
     }
 }
