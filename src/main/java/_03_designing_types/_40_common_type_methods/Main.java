@@ -10,6 +10,15 @@ public class Main {
                 LocalDateTime.now().plusHours(8)
         );
 
+        var e2 = new Event("Hackathon",
+                LocalDateTime.now(),
+                LocalDateTime.now().plusHours(8)
+        );
+
+        if ( e.equals(e2) ) {
+
+        }
+
         IO.println("KSDJFKS DFKJS DKSDFKS FDJSFD" + e);
     }
 }

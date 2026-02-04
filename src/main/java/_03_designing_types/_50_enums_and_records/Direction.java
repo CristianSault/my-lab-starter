@@ -1,5 +1,7 @@
 package _03_designing_types._50_enums_and_records;
 
+import java.text.ParseException;
+
 public enum Direction {
 
     NORTH, EAST, SOUTH, WEST; // The semicolon here is necessary only if you add other members to the enum type.
@@ -17,6 +19,22 @@ public enum Direction {
             case EAST -> WEST;
             case SOUTH -> NORTH;
             case WEST -> EAST;
+        };
+    }
+
+    /**
+     * Parses a string into a Direction value.
+     * @param directionString The string to parse
+     * @return The Direction value corresponding to the given string
+     * @throws ParseException If the given string is not a valid representation for a Direction
+     */
+    public static Direction parse(String directionString) throws ParseException {
+        return switch(directionString.toLowerCase()) {
+            case "n", "north" -> NORTH;
+            case "e", "east" -> EAST;
+            case "s", "south" -> SOUTH;
+            case "w", "west" -> WEST;
+            default -> throw new ParseException("'%s' is not a valid direction string".formatted(directionString), 0);
         };
     }
 

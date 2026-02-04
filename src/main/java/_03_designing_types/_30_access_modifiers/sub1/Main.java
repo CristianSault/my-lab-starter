@@ -14,6 +14,6 @@ class Main {
         IO.println(a.getS3());
         //IO.println(a.s3); // ERROR: s3 has private access in TypeA
 
-        IO.println(TypeAInSub2.s1a);
+        //IO.println(TypeAInSub2.s1a);
     }
 }

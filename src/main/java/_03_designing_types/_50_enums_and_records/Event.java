@@ -1,6 +1,7 @@
 package _03_designing_types._50_enums_and_records;
 
 import java.time.LocalDateTime;
+import java.util.IllegalFormatException;
 import java.util.List;
 
 // Since an event is primarily a data carrier, we can use a record to represent it

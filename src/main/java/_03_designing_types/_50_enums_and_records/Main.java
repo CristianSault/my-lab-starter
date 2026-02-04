@@ -1,5 +1,6 @@
 package _03_designing_types._50_enums_and_records;
 
+import java.text.ParseException;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -17,8 +18,23 @@ public class Main {
                 List.of(WIFI) // OR if we hadn't done the static import above: .of(Event.Service.WIFI)
         );
 
-        var d = Direction.random();
-        var n = Direction.NORTH;
-        IO.println("Random direction: %s, opposite of %s is %s".formatted(d, n, n.opposite()));
+
+        var p = new Person("Alice", 30);
+        p = new Person(p.name(), p.age()+1);
+        IO.println("%s %s".formatted(p, new Nonsense()));
+
+
+//
+//        var d = Direction.random();
+//        var n = Direction.NORTH;
+//        try {
+//            var d2 = Direction.parse("south");
+//            IO.println(d2);
+//        } catch (ParseException e) {
+//            IO.println("Invalid direction string");
+//        }
+//        IO.println("Random direction: %s, opposite of %s is %s".formatted(d, n, n.opposite()));
+//
+//        var answer = Answer.YES;
     }
 }

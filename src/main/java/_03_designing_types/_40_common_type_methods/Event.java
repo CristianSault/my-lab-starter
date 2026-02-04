@@ -77,9 +77,8 @@ public class Event {
         Event otherEvent = (Event) other;
         // Now that we have a true Event object, we can compare the relevant fields for equality
         // (We have access ot the private fields of otherEvent because we are inside the Event class)
-        return Objects.equals(title, otherEvent.title) && Objects.equals(start, otherEvent.start) && Objects.equals(end, otherEvent.end);
+        return title.equals(otherEvent.title) && start.equals(otherEvent.start) && end.equals(otherEvent.end);
     }
-
 
     public int hashCode() {
         return Objects.hash(title, start, end);
