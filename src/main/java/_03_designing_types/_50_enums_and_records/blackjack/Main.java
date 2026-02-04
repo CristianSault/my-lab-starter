@@ -16,10 +16,10 @@ public class Main {
         var deck = List.of(
                 new Card(ACE, SPADES),
                 new Card(KING, HEARTS),
-                new Card(TEN, DIAMONDS),
+                new Card(TEN, DIAMONDS)
         );
 
-        IO.println(card);
+        //IO.println(card);
 
     }
 }
