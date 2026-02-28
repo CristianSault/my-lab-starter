@@ -49,7 +49,7 @@ class BoardTest {
                    --X
                    """);
         boardTest6 = new Board("""
-                   XXX 
+                   XXX
                    O-O
                    -O-
                    """);
