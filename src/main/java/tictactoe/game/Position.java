@@ -1,6 +1,7 @@
 package tictactoe.game;
 
 import java.text.ParseException;
+import java.util.List;
 
 /**
  * Represents a game board position
@@ -62,5 +63,14 @@ public record Position(Row row, Col col) {
         }
 
         return new Position(row, col);
+    }
+
+    /**
+     * @return a random Position (random Row and Col)
+     */
+    public static Position randomPos() {
+        var rowOptions = List.of(Row.Top, Row.Middle, Row.Bottom);
+        var colOptions = List.of(Col.Left, Col.Middle, Col.Right);
+        return new Position(rowOptions.get((int)(Math.random() * rowOptions.size())), colOptions.get((int)(Math.random() * colOptions.size())));
     }
 }

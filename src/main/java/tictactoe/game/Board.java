@@ -155,9 +155,7 @@ public class Board {
      * @param pos A game board position
      * @param token The token to place
      */
-    public void place(Position pos, Token token) {
-        board[rowIdx(pos)][colIdx(pos)] = token;
-    }
+    public void place(Position pos, Token token) { board[rowIdx(pos)][colIdx(pos)] = token; }
 
     /**
      * @return A 3x3 string representation of the game board

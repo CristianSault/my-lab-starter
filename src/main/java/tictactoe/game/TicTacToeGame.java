@@ -1,6 +1,7 @@
 package tictactoe.game;
 
 import tictactoe.game.player.Player;
+import tictactoe.ui.Console;
 
 /**
  * Represents the current state of a tictactoe game, including which player's turn it is,
@@ -66,7 +67,7 @@ public class TicTacToeGame {
      * @param pos The position to place the token at
      */
     private void placeTokenAt(Position pos) {
-        board.place(pos, whoseTurn.token());
+        board.place(pos, whoseTurn.getToken());
 
         // If the game is still in progress, switch turns
         // (If there's a winner, we DON'T want to switch turns so that 'whoseTurn' still reflects the previous

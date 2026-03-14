@@ -2,7 +2,7 @@ package tictactoe.ui;
 
 import tictactoe.game.*;
 import com.diogonunes.jcolor.AnsiFormat;
-import tictactoe.game.player.Player;
+import tictactoe.game.player.*;
 
 import java.text.ParseException;
 
@@ -65,7 +65,7 @@ public class Console {
      */
     public static Player promptForPlayer(Token whichPlayer) {
 
-        var helpMessage = "To make a computer player, use the format '@<name>' where <name> is one of Linus, Omla, Optimus, or Randy.";
+        var helpMessage = "To make a computer player, use the format '@<name>' where <name> is either Circe, or Optimus.";
 
         while ( true ) {
             var input = prompt(fPrompt.format("Who will play " + whichPlayer + "? "));
@@ -75,15 +75,15 @@ public class Console {
                 input = input.substring(1).toLowerCase(); // remove the '@' prefix
 
                 switch ( input ) {
-                    // TODO: add cases here for the different computer players you implement
-                    default -> printAlert(helpMessage);
+                    case "circe": return new Circe(whichPlayer);
+                    case "optimus": return new Optimus(whichPlayer);
+                    default: printAlert(helpMessage);
                 }
             } else {
-                return new Player(input, whichPlayer);
+                return new HumanPlayer(input, whichPlayer);
             }
         }
     }
-
 
     /**
      * Repeatedly prompt the user for a position on which to place their next token.
