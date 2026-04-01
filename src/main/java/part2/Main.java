@@ -2,13 +2,12 @@ package part2;
 
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.Comparator;
 import java.util.List;
 
 public class Main {
 
 
-    static void main(String[] args) {
+    static void main() {
         var bigMacs = loadData();
 
         // 1st: convert to Stream<BigMac>
