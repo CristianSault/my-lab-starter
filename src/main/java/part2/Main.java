@@ -11,30 +11,55 @@ public class Main {
     static void main(String[] args) {
         var bigMacs = loadData();
 
-        // TODO: Find the BigMac entry for Canada in the year 2022
+        // 1st: convert to Stream<BigMac>
+        // 2nd: filter by year 2022 AND country = Canada
+        // 3rd: convert to List<BigMac>
+        // 4th: get the first BigMac in this List<BigMac> (there's a "repeated" case in september)
+        System.out.println(bigMacs.stream().filter(bigMac -> (bigMac.year() == 2022 && bigMac.country().equals("Canada"))).toList().getFirst());
 
-        // TODO: Create a list containing only the data for Canada
+        // 1st: convert to Stream<BigMac>
+        // 2nd: filter by country = Canada
+        // 3rd: convert to List<BigMac>
+        List<BigMac> caList = bigMacs.stream().filter(bigMac -> bigMac.country().equals("Canada")).toList();
+        System.out.println("\n" + "-".repeat(100) + "\n" + caList.size());
+        caList.forEach(IO::println);
 
-        // TODO: Create a list containing strings of the format "<country>: <currency>" (e.g. "Canada: CAD")
-        //       There must be no duplicates, and the items must be sorted alphabetically
+        // 1st: convert to Stream<BigMac>
+        // 2nd: map to Stream<String> coinciding with the format “<country>: <currency>” (e.g. “Canada: CAD”)
+        // 3rd: get rid of duplicates
+        // 4th: sort it alphabetically
+        // 5th: convert to List<String>
+        List<String> formatList = bigMacs.stream().map(bigMac -> "%s: %s".formatted(bigMac.country(), bigMac.currency())).distinct().sorted().toList();
+        System.out.println("\n" + "-".repeat(100) + "\n" + formatList.size());
+        formatList.forEach(IO::println);
 
-        // TODO: Print the most recent 5 years of data for Canada
+        // 1st: convert to Stream<BigMac>
+        // 2nd: filter by year between 2018 and 2022 (last 5 recent years)
+        // 3rd: convert to List<BigMac>
+        List<BigMac> fiveYearsList = bigMacs.stream().filter(bigMac -> (bigMac.year() >= 2018 && bigMac.year() <= 2022)).toList();
+        System.out.println("\n" + "-".repeat(100) + "\n" + fiveYearsList.size());
+        fiveYearsList.forEach(IO::println);
 
-        // TODO: Print the data for countries with a 2022 BigMac price less than $2 USD
+        // 1st: convert to Stream<BigMac>
+        // 2nd: filter by year = 2022 AND UsdPrice < $2.0
+        // 3rd: convert to List<BigMac>
+        List<BigMac> cheap2022List = bigMacs.stream().filter(bigMac -> (bigMac.year() == 2022 && bigMac.usdPrice() < 2.0)).toList();
+        System.out.println("\n" + "-".repeat(100) + "\n" + cheap2022List.size());
+        cheap2022List.forEach(IO::println);
 
-        // TODO: Calculate the average USD price of BigMacs in 2022 over all countries
-
+        System.out.println("\n" + "-".repeat(100) + "\n");
+        // 1st: convert to Stream<BigMac>
+        // 2nd: filter by year = 2022
+        // 3rd: get rid of duplicates
+        // 4th: map to bigMac.usdPrice() (Stream<Double> or DoubleStream)
+        // 5th: get the average of all these records (with DoubleStream.average() returning OptionalDouble)
+        // 6th: return the calculated average or 0.0 if isPresent() -> false
+        System.out.println(bigMacs.stream().filter(bigMac -> bigMac.year() == 2022).distinct().mapToDouble(BigMac::usdPrice).average().orElse(0.0));
     }
 
     public static List<BigMac> loadData() {
         try(var lines = Files.lines(Path.of("BigMacPrices.csv"))) {
-            return lines.map(
-                    // TODO: replace this ENTIRE lambda expression with a function reference that parses the line from the file
-                    //       (see the parseCsvLine method below)
-                    line -> {
-
-                        return new BigMac(1, "CAD", "ca", 1.0, 1.0, 1.0);
-                    })
+            return lines.map(Main::parseCsvLine)
                     .toList();
 
         } catch (Exception e) {
